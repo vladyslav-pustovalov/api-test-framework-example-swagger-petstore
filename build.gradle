@@ -2,18 +2,63 @@ plugins {
     id 'java'
 }
 
-group = 'io'
-version = '1.0-SNAPSHOT'
+group = 'io.swagger.petstore'
+version = '1.0'
 
 repositories {
     mavenCentral()
 }
 
+ext {
+    jacksonVer = "2.16.1"
+    javaFakerVer = "1.0.2"
+    restAssuredVer = "5.4.0"
+    junitVer = "5.10.1"
+    assertjVer = "3.25.1"
+    lombokVer = "1.18.30"
+}
+
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.9.1')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation(
+            "com.fasterxml.jackson.core:jackson-databind:$jacksonVer",
+            "com.github.javafaker:javafaker:$javaFakerVer",
+            "io.rest-assured:rest-assured:$restAssuredVer"
+    )
+
+    testImplementation (
+            "org.junit.jupiter:junit-jupiter-api:$junitVer",
+            "org.junit.jupiter:junit-jupiter-engine:$junitVer",
+            "org.junit.jupiter:junit-jupiter-params:$junitVer",
+            "org.assertj:assertj-core:$assertjVer"
+    )
+
+    compileOnly "org.projectlombok:lombok:$lombokVer"
+    annotationProcessor "org.projectlombok:lombok:$lombokVer"
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+    withSourcesJar()
+    withJavadocJar()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+jar {
+    archiveBaseName = project.name
+    version = project.version
 }
 
 test {
     useJUnitPlatform()
+
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+        showStandardStreams = true
+        exceptionFormat = 'full'
+    }
 }
