@@ -1,6 +1,5 @@
 package io.swagger.petstore.api.pet.models;
 
-import com.github.javafaker.Faker;
 import lombok.Getter;
 
 import java.util.Random;
