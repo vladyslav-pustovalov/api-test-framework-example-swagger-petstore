@@ -22,7 +22,7 @@ public class PetDTO {
     @JsonProperty("status")
     private Status status;
 
-    public Status setStatus(String stringStatus) {
-        return Status.fromValue(stringStatus);
+    public void setStatus(String stringStatus) {
+        this.status = Status.fromValue(stringStatus);
     }
 }

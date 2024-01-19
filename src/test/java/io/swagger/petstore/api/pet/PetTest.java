@@ -1,6 +1,7 @@
 package io.swagger.petstore.api.pet;
 
 import com.github.javafaker.Faker;
+import io.swagger.petstore.api.pet.assertions.ResponseExpectedMessage;
 import io.swagger.petstore.api.pet.controller.PetController;
 import io.swagger.petstore.api.pet.models.Category;
 import io.swagger.petstore.api.pet.models.PetDTO;
@@ -15,8 +16,8 @@ public class PetTest {
     PetController petController = new PetController();
     Faker faker = new Faker();
 
-    @BeforeEach
-    void init() {
+    @BeforeAll
+    static void init() {
         BaseSpecification.installSpecifications();
     }
 
@@ -32,9 +33,16 @@ public class PetTest {
                 .status(Status.randomStatus())
                 .build();
 
-        var petDTO = petController.addNewPetToStore(targetPet);
-        var petDT2 = petController.findPetById(targetPet.getId());
+        petController.addNewPetToStore(targetPet)
+                .statusCodeIsEqualTo(ResponseExpectedMessage.StatusCode.OK)
+                .responseIsEqualTo(targetPet);
 
-        Assertions.assertEquals(petDTO.as(PetDTO.class), petDT2.as(PetDTO.class));
+        petController.findPetById(targetPet.getId())
+                .statusCodeIsEqualTo(ResponseExpectedMessage.StatusCode.OK)
+                .responseIsEqualTo(targetPet);
+    }
+
+    @AfterAll
+    static void tearDown() {
     }
 }

@@ -3,6 +3,7 @@ package io.swagger.petstore.api.pet.controller;
 
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import io.swagger.petstore.api.pet.assertions.ResponseAssertion;
 import io.swagger.petstore.api.pet.models.PetDTO;
 
 import static io.restassured.RestAssured.given;
@@ -20,11 +21,11 @@ public class PetController {
                     .put();
     }
 
-    public Response addNewPetToStore(PetDTO petDTO) {
-        return petStoreAPIClient()
+    public ResponseAssertion addNewPetToStore(PetDTO petDTO) {
+        return new ResponseAssertion(petStoreAPIClient()
                     .body(petDTO)
                 .when()
-                    .post();
+                    .post());
     }
 
     public Response findPetsByStatus() {
@@ -39,10 +40,10 @@ public class PetController {
                     .get("/findPetByTag");
     }
 
-    public Response findPetById(Integer id) {
-        return petStoreAPIClient()
+    public ResponseAssertion findPetById(Integer id) {
+        return new ResponseAssertion(petStoreAPIClient()
                 .when()
-                    .get(String.format("/%s", id));
+                    .get(String.format("/%s", id)));
     }
 
     public Response updatePetWithFormData(String petId) {
