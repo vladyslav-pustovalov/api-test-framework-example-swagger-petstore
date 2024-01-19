@@ -16,6 +16,7 @@ ext {
     junitVer = "5.10.1"
     assertjVer = "3.25.1"
     lombokVer = "1.18.30"
+    allureVer = "2.25.0"
 }
 
 dependencies {
@@ -29,7 +30,9 @@ dependencies {
     testImplementation (
             "org.junit.jupiter:junit-jupiter-api:$junitVer",
             "org.junit.jupiter:junit-jupiter-engine:$junitVer",
-            "org.junit.jupiter:junit-jupiter-params:$junitVer"
+            "org.junit.jupiter:junit-jupiter-params:$junitVer",
+            "io.qameta.allure:allure-bom:$allureVer",
+            "io.qameta.allure:allure-junit5:$allureVer"
     )
 
     compileOnly "org.projectlombok:lombok:$lombokVer"
