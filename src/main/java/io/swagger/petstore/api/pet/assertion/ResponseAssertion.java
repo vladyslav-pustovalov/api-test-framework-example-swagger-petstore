@@ -1,4 +1,4 @@
-package io.swagger.petstore.api.pet.assertions;
+package io.swagger.petstore.api.pet.assertion;
 
 import io.restassured.response.Response;
 import lombok.AllArgsConstructor;

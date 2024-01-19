@@ -1,12 +1,12 @@
 package io.swagger.petstore.api.pet;
 
 import com.github.javafaker.Faker;
-import io.swagger.petstore.api.pet.assertions.ResponseExpectedMessage;
+import io.swagger.petstore.api.pet.assertion.ResponseExpectedMessage;
 import io.swagger.petstore.api.pet.controller.PetController;
-import io.swagger.petstore.api.pet.models.Category;
-import io.swagger.petstore.api.pet.models.PetDTO;
-import io.swagger.petstore.api.pet.models.Status;
-import io.swagger.petstore.api.pet.models.Tag;
+import io.swagger.petstore.api.pet.model.Category;
+import io.swagger.petstore.api.pet.model.PetDTO;
+import io.swagger.petstore.api.pet.model.Status;
+import io.swagger.petstore.api.pet.model.Tag;
 import io.swagger.petstore.api.pet.util.BaseSpecification;
 import org.junit.jupiter.api.*;
 
@@ -30,7 +30,7 @@ public class PetTest {
                 .category(Category.builder().id(faker.number().randomDigit()).name(faker.name().name()).build())
                 .photoUrls(Collections.singletonList(faker.name().name()))
                 .tags(Collections.singletonList(Tag.builder().id(faker.number().randomDigit()).name(faker.name().name()).build()))
-                .status(Status.randomStatus())
+                .status(Status.randomStatus().getValue())
                 .build();
 
         petController.addNewPetToStore(targetPet)

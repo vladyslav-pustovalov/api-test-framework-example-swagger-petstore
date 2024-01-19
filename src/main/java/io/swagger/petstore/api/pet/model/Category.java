@@ -1,4 +1,4 @@
-package io.swagger.petstore.api.pet.models;
+package io.swagger.petstore.api.pet.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;

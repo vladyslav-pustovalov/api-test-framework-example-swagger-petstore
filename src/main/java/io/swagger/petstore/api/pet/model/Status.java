@@ -1,20 +1,18 @@
-package io.swagger.petstore.api.pet.models;
+package io.swagger.petstore.api.pet.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.Random;
 
 @Getter
+@AllArgsConstructor
 public enum Status {
     AVAILABLE("available"),
     PENDING("pending"),
     SOLD("sold");
 
-    private String value;
-
-    Status(String value) {
-        this.value = value;
-    }
+    private final String value;
 
     @Override
     public String toString() {

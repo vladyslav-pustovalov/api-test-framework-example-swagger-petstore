@@ -3,8 +3,8 @@ package io.swagger.petstore.api.pet.controller;
 
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import io.swagger.petstore.api.pet.assertions.ResponseAssertion;
-import io.swagger.petstore.api.pet.models.PetDTO;
+import io.swagger.petstore.api.pet.assertion.ResponseAssertion;
+import io.swagger.petstore.api.pet.model.PetDTO;
 
 import static io.restassured.RestAssured.given;
 

@@ -1,4 +1,4 @@
-package io.swagger.petstore.api.pet.models;
+package io.swagger.petstore.api.pet.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
@@ -20,9 +20,9 @@ public class PetDTO {
     @JsonProperty("tags")
     private List<Tag> tags;
     @JsonProperty("status")
-    private Status status;
+    private String status;
 
     public void setStatus(String stringStatus) {
-        this.status = Status.fromValue(stringStatus);
+        this.status = Status.fromValue(stringStatus).getValue();
     }
 }

@@ -1,4 +1,4 @@
-package io.swagger.petstore.api.pet.assertions;
+package io.swagger.petstore.api.pet.assertion;
 
 import io.restassured.response.Response;
 import lombok.AllArgsConstructor;
@@ -13,22 +13,19 @@ public class ResponseExpectedMessage {
 
     public String expectedStatusCode(StatusCode expectedStatusCode) {
         return String.format("""
-                Expected status code: %s
                 
-                Actual status code: %s
-                
-                Actual response bode: %s
-                
+                Expected status code: %s                
+                Actual status code: %s            
+                Actual response bode: %s                
                 """, expectedStatusCode.code, targetResponse.statusCode(), targetResponse.body().asString());
     }
 
     public String expectedResponseBodyClass(Class expectedClass) {
         return String.format("""
+                
                 Unexpected response body: %s
-                
-                Expected body type: %s
-                
-                With fields: %s
+                Expected body type: %s                
+                With fields: %s              
                 """, targetResponse.asString(), expectedClass.getSimpleName(), Arrays.toString(expectedClass.getDeclaredFields()));
     }
 
