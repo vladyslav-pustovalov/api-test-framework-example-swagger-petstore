@@ -1,0 +1,1 @@
+{"d253db2b0382653b1738ffabb910a14d":{"statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1},"items":[{"uid":"c25722ac08d5148","reportUrl":"https://vladyslav-pustovalov.github.io/swagger-petstore/5//#testresult/c25722ac08d5148","status":"passed","time":{"start":1705762065864,"stop":1705762068026,"duration":2162}}]}}
