@@ -1,4 +1,4 @@
-<h1>My examle of API test automation project</h1>
+<h1>My example of API test automation project</h1>
 <p>
 <h3>Based on:</h3>
 
@@ -26,8 +26,8 @@
 
 <p>
 
-Running of the CI/CD starts after every push or pull-request to master branch.<br>
-The report itself is saved to the separate
+The CI/CD runs after every push or pull request to the master branch.<br>
+The report is saved to a separate
 branch [gh-pages](https://github.com/vladyslav-pustovalov/swagger-petstore/tree/gh-pages). <br>
-Reports are in the folders named as a number of executing, the last one is with the last report.
+Reports are in the folders named as several executing, the last one [might be seen here](https://vladyslav-pustovalov.github.io/swagger-petstore/).
 </p>
