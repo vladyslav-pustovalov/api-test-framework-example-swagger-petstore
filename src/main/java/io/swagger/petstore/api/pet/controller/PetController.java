@@ -1,6 +1,6 @@
 package io.swagger.petstore.api.pet.controller;
 
-
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.swagger.petstore.api.pet.assertion.ResponseAssertion;
@@ -21,6 +21,7 @@ public class PetController {
                     .put();
     }
 
+    @Step("Add a new pet to the store")
     public ResponseAssertion addNewPetToStore(PetDTO petDTO) {
         return new ResponseAssertion(petStoreAPIClient()
                     .body(petDTO)
@@ -40,6 +41,7 @@ public class PetController {
                     .get("/findPetByTag");
     }
 
+    @Step("Find a pet from the store by id")
     public ResponseAssertion findPetById(Integer id) {
         return new ResponseAssertion(petStoreAPIClient()
                 .when()

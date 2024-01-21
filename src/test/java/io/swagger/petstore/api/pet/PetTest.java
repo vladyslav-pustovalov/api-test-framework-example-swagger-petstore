@@ -23,7 +23,7 @@ public class PetTest {
 
     @Test()
     @DisplayName("Add a new pet to the store via API")
-    void createPet() {
+    void testCreateNewPetWithAPI() {
         PetDTO targetPet = PetDTO.builder()
                 .id(faker.number().randomDigit())
                 .name(faker.name().name())
