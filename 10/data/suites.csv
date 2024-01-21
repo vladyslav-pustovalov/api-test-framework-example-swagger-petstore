@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Jan 21 11:48:43 GMT 2024","Sun Jan 21 11:48:47 GMT 2024","4321","","io.swagger.petstore.api.pet.PetTest","","io.swagger.petstore.api.pet.PetTest","testCreateNewPet","Add a new pet to the store via API",""
