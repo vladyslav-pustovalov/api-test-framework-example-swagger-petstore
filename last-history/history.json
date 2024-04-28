@@ -1,1 +1,0 @@
-{"b83f01a4692d840f9ccb0f987f81b63":{"statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1},"items":[{"uid":"516e2a47a96c47ec","reportUrl":"https://vladyslav-pustovalov.github.io/api-test-framework-example-swagger-petstore/13//#testresult/516e2a47a96c47ec","status":"passed","time":{"start":1714316163159,"stop":1714316166524,"duration":3365}}]}}
