@@ -29,5 +29,5 @@
 The CI/CD runs after every push or pull request to the master branch.<br>
 The report is saved to a separate
 branch [gh-pages](https://github.com/vladyslav-pustovalov/swagger-petstore/tree/gh-pages). <br>
-Reports are in the folders named as several executing, the last one [might be seen here](https://vladyslav-pustovalov.github.io/swagger-petstore/).
+Reports are in the folders named as several executing, the last one [might be seen here](https://vladyslav-pustovalov.github.io/api-test-framework-example-swagger-petstore/).
 </p>
