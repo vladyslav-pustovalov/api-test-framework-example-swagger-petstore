@@ -8,7 +8,10 @@ import io.swagger.petstore.api.pet.model.PetDTO;
 import io.swagger.petstore.api.pet.model.Status;
 import io.swagger.petstore.api.pet.model.Tag;
 import io.swagger.petstore.api.pet.util.BaseSpecification;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 
@@ -24,14 +27,7 @@ public class PetTest {
     @Test()
     @DisplayName("Add a new pet to the store via API")
     void testCreateNewPet() {
-        PetDTO targetPet = PetDTO.builder()
-                .id(faker.number().randomDigit())
-                .name(faker.name().name())
-                .category(Category.builder().id(faker.number().randomDigit()).name(faker.name().name()).build())
-                .photoUrls(Collections.singletonList(faker.name().name()))
-                .tags(Collections.singletonList(Tag.builder().id(faker.number().randomDigit()).name(faker.name().name()).build()))
-                .status(Status.randomStatus().getValue())
-                .build();
+        PetDTO targetPet = getFakePet();
 
         petController.addNewPetToStore(targetPet)
                 .statusCodeIsEqualTo(ResponseExpectedMessage.StatusCode.OK)
@@ -44,5 +40,16 @@ public class PetTest {
 
     @AfterAll
     static void tearDown() {
+    }
+
+    private PetDTO getFakePet() {
+        return PetDTO.builder()
+                .id(faker.number().randomDigit())
+                .name(faker.name().name())
+                .category(Category.builder().id(faker.number().randomDigit()).name(faker.name().name()).build())
+                .photoUrls(Collections.singletonList(faker.name().name()))
+                .tags(Collections.singletonList(Tag.builder().id(faker.number().randomDigit()).name(faker.name().name()).build()))
+                .status(Status.randomStatus().getValue())
+                .build();
     }
 }
